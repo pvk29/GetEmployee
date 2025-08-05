@@ -7,30 +7,51 @@ import jakarta.persistence.Id;
 @Entity
 class Employee{
     private @Id @GeneratedValue Long id;
-    private String name;
+    // private String name;
+    private String firstname;
+    private String lastname;
     private String role;
-
+    
     Employee() {}
 
-    Employee(String name, String role){
-        this.name = name;
+    Employee(String firstname, String lastname, String role){
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.role = role;
     }
 
+    
     public Long getId() {
-        return id;
+        return this.id;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
+    
+    public String getFirstname() {
+        return this.firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return this.lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public String getName() {
-        return name;
+        return this.firstname + " " + this.lastname;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.firstname = name.split(" ")[0];
+        this.lastname = name.split(" ")[1];
     }
 
     public String getRole() {
@@ -42,10 +63,7 @@ class Employee{
     }
 
     @Override
-    public String toString(){
-        return "Employee{" + "id=" + this.id + 
-                ", name='" + this.name + '\'' + 
-                ", role='" + this.role + '\'' +
-                 '}';
+    public String toString() {
+        return "Employee [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", role=" + role + "]";
     }
 }
