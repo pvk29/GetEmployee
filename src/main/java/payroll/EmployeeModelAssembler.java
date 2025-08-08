@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 class EmployeeModelAssembler implements RepresentationModelAssembler<Employee, EntityModel<Employee>> {
 
     /***
-     * converting a non-model object (Employee) into a 
+     * Converting a non-model object (Employee) into a 
      * model-based object (EntityModel<Employee>).
      * <p>
      * Adds the following links:
